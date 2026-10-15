@@ -156,7 +156,7 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
 
 /* work — horizontal, WebGL frames */
 .work{position:relative;padding-top:clamp(60px,8vw,110px);background:var(--ink)}
-.work-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,56px)}
+.work-head{position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,56px)}
 .work-head .serif{color:var(--hot)}
 .work-track{display:flex;gap:clamp(16px,2vw,32px);padding-inline:var(--gut);padding-bottom:clamp(60px,8vw,110px);width:max-content;will-change:transform}
 .case{width:min(62vw,880px);flex:none;display:flex;flex-direction:column;gap:16px}
@@ -193,6 +193,11 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
 .step p{margin:0;color:var(--mute);font-size:clamp(17px,1.5vw,22px);max-width:30ch;line-height:1.35}
 .step p em{font-family:var(--f-serif);color:var(--bone);font-size:1.15em}
 
+.dc{position:absolute;pointer-events:none;z-index:2;filter:drop-shadow(0 24px 40px rgba(0,0,0,.45));will-change:transform}
+.wk-bust{right:30%;bottom:-90px;width:clamp(110px,12vw,210px)}
+.crew-david{left:48%;bottom:-10px;width:clamp(130px,15vw,250px)}
+.cl-bust{left:-1%;bottom:0;width:clamp(150px,18vw,300px)}
+@media (max-width:900px){.wk-bust{right:4%;width:96px}.crew-david{left:auto;right:4%;bottom:auto;top:-40px;width:110px}.cl-bust{width:120px}}
 /* numbers — giant composition */
 .numbers{position:relative;overflow:hidden;padding-block:clamp(70px,9vw,130px);background:var(--ink)}
 .nb{margin-top:clamp(20px,3vw,40px)}
@@ -207,7 +212,7 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
 .nx-eye .qp{display:block;width:100%;height:100%;transform-style:preserve-3d}
 .nx-eye img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 20px 40px rgba(255,46,99,.25))}
 .one{position:relative;display:inline-block}
-.nx-frog{position:absolute;left:-.12em;top:-.13em;width:.56em;transform-origin:50% 100%;filter:drop-shadow(0 10px 18px rgba(0,0,0,.4))}
+.nx-frog{position:absolute;left:-.2em;top:-.24em;width:.72em;transform-origin:50% 100%;rotate:-14deg;filter:drop-shadow(0 10px 18px rgba(0,0,0,.4))}
 .nx-statue{position:absolute;right:-.02em;bottom:-.02em;height:1.02em;width:auto;max-width:none;transform-origin:30% 100%;filter:drop-shadow(0 20px 40px rgba(0,0,0,.45));pointer-events:none}
 .n3 .big{padding-right:1.1em}
 .zero{position:relative;display:inline-block;color:transparent;-webkit-text-stroke:3px var(--bone)}
@@ -294,7 +299,7 @@ blockquote{margin:0}
 
 /* crew */
 .crew{padding-block:clamp(50px,6vw,90px) clamp(70px,9vw,130px);background:var(--ink);border-top:1px solid var(--line)}
-.crew-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-block:clamp(36px,5vw,70px)}
+.crew-head{position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-block:clamp(36px,5vw,70px)}
 .crew-head p{margin:0;max-width:34ch;color:var(--mute)}
 .crew-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.6vw,24px)}
 .member{display:flex;flex-direction:column;gap:12px;cursor:pointer}
@@ -495,7 +500,7 @@ footer{background:var(--ink)}
   </section>
 
   <section class="work" id="work">
-    <div class="work-head wrap">
+    <div class="work-head wrap"><img class="dc wk-bust" src="im/bust-l.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <h2 class="h-sec reveal">Selected <span class="serif">work</span></h2>
       <p class="mono" style="color:var(--mute);margin:0">Proof, not promises · 2025—2026</p>
     </div>
@@ -557,7 +562,7 @@ footer{background:var(--ink)}
         </div>
         <div class="nrow n2 right">
           <p class="lbl"><span class="mono">02 /</span>countries our work <em class="serif hot">runs</em> in</p>
-          <div class="big" aria-label="12"><span class="one">1<img class="nx-frog" src="im/frog-cut.webp" alt="" loading="lazy" decoding="async"></span><span class="dg" data-v="2"></span></div>
+          <div class="big" aria-label="12"><span class="one">1<img class="nx-frog" src="im/phones-cut.webp" alt="" loading="lazy" decoding="async"></span><span class="dg" data-v="2"></span></div>
         </div>
         <div class="nrow n3">
           <div class="big" aria-label="7"><span class="dg" data-v="7"></span><img class="nx-statue" src="im/statue-cut.webp" alt="" loading="lazy" decoding="async"></div>
@@ -612,12 +617,13 @@ footer{background:var(--ink)}
       <div class="cl-row" data-dir="1"><span class="o">HROM</span><i>✳</i><span>LUNA FM</span><i>✳</i><span class="o">SMAK</span><em>&amp;</em><span>ZORYA</span><i>✳</i><span class="o">MAMAI</span><i>✳</i><span class="o">HROM</span><i>✳</i><span>LUNA FM</span><i>✳</i><span class="o">SMAK</span><em>&amp;</em><span>ZORYA</span><i>✳</i><span class="o">MAMAI</span><i>✳</i></div>
       <div class="cl-row" data-dir="-1"><span>TYSHA</span><i>✳</i><span class="o">KHVYLIA</span><i>✳</i><span>DIM</span><em>&amp;</em><span class="o">PYL</span><i>✳</i><span>BORSCH LAB</span><i>✳</i><span>TYSHA</span><i>✳</i><span class="o">KHVYLIA</span><i>✳</i><span>DIM</span><em>&amp;</em><span class="o">PYL</span><i>✳</i><span>BORSCH LAB</span><i>✳</i></div>
     </div>
+    <img class="dc cl-bust" src="im/bust-r.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
     <img class="cl-cham" id="clCham" src="im/cham-cut.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
   </section>
 
   <section class="crew wrap" id="crew">
     <div class="label-row mono"><span>The crew</span><span>Small team · Big nerve</span></div>
-    <div class="crew-head">
+    <div class="crew-head"><img class="dc crew-david" src="im/david-cut.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <h2 class="h-sec reveal">Meet the<br><span class="serif hot">animals</span></h2>
       <p>We don't do headshots. Each of us picked the creature that explains us best.<span class="desk"> Hover to wake them up.</span></p>
     </div>
@@ -869,7 +875,7 @@ footer{background:var(--ink)}
   (function levitate(sel){
     const stage=$(sel);if(!stage)return;const items=[...stage.querySelectorAll('.qs')],R=gsap.utils.random;
     gsap.from(items,{x:()=>R(-240,240),y:()=>R(160,360),rotation:()=>R(-60,60),scale:.3,autoAlpha:0,duration:1.8,stagger:{each:.08,from:'center'},ease:'expo.out',scrollTrigger:{trigger:stage,start:'top 80%',toggleActions:'play none none reverse'}});
-    items.forEach(el=>{const im=el.querySelector('img,svg');if(im)gsap.to(im,{yPercent:R(-8,-3),rotation:R(-5,5),duration:R(2.4,4),ease:'sine.inOut',yoyo:true,repeat:-1,delay:R(0,2)})});
+    items.forEach(el=>{const im=el.querySelector('img,svg');if(im)gsap.to(im,{yPercent:R(-8,-3),rotation:el.classList.contains('ps-eye')?0:R(-5,5),duration:R(2.4,4),ease:'sine.inOut',yoyo:true,repeat:-1,delay:R(0,2)})});
     gsap.fromTo(sel+' .ps-eye .qp img',{scale:1.15},{scale:.95,ease:'none',scrollTrigger:{trigger:'.process',start:'top bottom',end:'bottom top',scrub:1}});
     gsap.fromTo(sel+' .ps-orbit .qp',{rotation:10},{rotation:-10,ease:'none',scrollTrigger:{trigger:'.process',start:'top bottom',end:'bottom top',scrub:1}});
   })('#pStage');
@@ -877,7 +883,7 @@ footer{background:var(--ink)}
   (function eyes(){
     const list=$$('.qs-eye').filter(e=>!e.closest('#qStage')).map(el=>{const p=el.querySelector('.qp');return{el,rx:gsap.quickTo(p,'rotationX',{duration:.6,ease:'power3'}),ry:gsap.quickTo(p,'rotationY',{duration:.6,ease:'power3'})}});
     window.addEventListener('pointermove',e=>list.forEach(o=>{const r=o.el.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;
-      const dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);o.ry(gsap.utils.clamp(-40,40,dx/10));o.rx(gsap.utils.clamp(-40,40,-dy/10))}));
+      const dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);o.ry(gsap.utils.clamp(-16,16,dx/28));o.rx(gsap.utils.clamp(-16,16,-dy/28))}));
   })();
 
   // manifesto words
@@ -1009,6 +1015,11 @@ footer{background:var(--ink)}
   gsap.to('#badge svg',{rotation:360,duration:14,ease:'none',repeat:-1});
   gsap.fromTo('#badge',{scale:.4,rotation:-90},{scale:1,rotation:0,ease:'back.out(2)',duration:1.2,scrollTrigger:{trigger:'#badge',start:'top 90%',toggleActions:'play none none reverse'}});
 
+  // ---------- DECOR cut-outs ----------
+  $$('.dc').forEach((el,k)=>{
+    gsap.fromTo(el,{yPercent:60,rotation:[-20,16,-14][k%3],autoAlpha:0},{yPercent:0,rotation:0,autoAlpha:1,duration:1.4,ease:'back.out(1.6)',scrollTrigger:{trigger:el.parentElement,start:'top 80%',toggleActions:'play none none reverse'}});
+    gsap.to(el,{y:-12,rotation:[3,-4,3][k%3],duration:[2.6,3.1,2.2][k%3],ease:'sine.inOut',yoyo:true,repeat:-1,delay:1.4});
+  });
   // ---------- NUMBERS ----------
   $$('.dg').forEach((d,k)=>{
     const v=+d.dataset.v,reel=document.createElement('span');reel.className='reel';
@@ -1022,9 +1033,9 @@ footer{background:var(--ink)}
   });
   gsap.fromTo('.nx-eye',{xPercent:-260,rotation:-540,scale:.4},{xPercent:0,rotation:0,scale:1,duration:2,ease:'expo.out',scrollTrigger:{trigger:'.n1',start:'top 85%',toggleActions:'play none none reverse'}});
   gsap.fromTo('.nx-frog',{yPercent:120,autoAlpha:0},{yPercent:0,autoAlpha:1,duration:1,ease:'back.out(2.4)',delay:.5,scrollTrigger:{trigger:'.n2',start:'top 80%',toggleActions:'play none none reverse'}});
-  gsap.to('.nx-frog',{scaleY:.9,scaleX:1.06,duration:.9,ease:'sine.inOut',yoyo:true,repeat:-1});
+  gsap.to('.nx-frog',{rotation:5,y:-8,duration:2.2,ease:'sine.inOut',yoyo:true,repeat:-1});
   gsap.fromTo('.nx-statue',{yPercent:40,xPercent:40,rotation:25,autoAlpha:0},{yPercent:0,xPercent:0,rotation:0,autoAlpha:1,duration:1.6,ease:'expo.out',scrollTrigger:{trigger:'.n3',start:'top 80%',toggleActions:'play none none reverse'}});
-  gsap.to('.nx-statue',{rotation:-4,duration:.48,ease:'sine.inOut',yoyo:true,repeat:-1});
+  gsap.to('.nx-statue',{rotation:-2.5,y:-6,duration:2.6,ease:'sine.inOut',yoyo:true,repeat:-1});
   gsap.fromTo('.nx-skull',{scale:0,rotation:-200},{scale:1,rotation:0,duration:1.5,ease:'back.out(1.8)',scrollTrigger:{trigger:'.n4',start:'top 80%',toggleActions:'play none none reverse'}});
   gsap.to('.nx-skull',{yPercent:-8,rotation:8,duration:1.8,ease:'sine.inOut',yoyo:true,repeat:-1});
   gsap.fromTo('.zero',{rotation:-12},{rotation:10,ease:'none',scrollTrigger:{trigger:'.n4',start:'top bottom',end:'bottom top',scrub:1}});
