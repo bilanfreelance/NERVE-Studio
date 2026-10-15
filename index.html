@@ -167,9 +167,12 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
 .process{padding-block:clamp(90px,12vw,170px);border-top:1px solid var(--line);background:var(--ink)}
 .proc-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:start}
 .proc-eye{position:sticky;top:12vh;aspect-ratio:4/5;border-radius:999px 999px 6px 6px;overflow:hidden;background:var(--ink-2)}
-.proc-eye img{width:100%;height:100%;object-fit:cover;transform:scale(1.15);transform-origin:50.3% 45%}
+.proc-eye .eye-media{position:absolute;inset:0;transform:scale(1.15);transform-origin:48.6% 44.7%;will-change:transform}
+.proc-eye img{width:100%;height:100%;object-fit:cover}
+.proc-eye canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.proc-eye.gl img{visibility:hidden}
 .proc-eye .ring{position:absolute;inset:0;pointer-events:none}
-.proc-eye .ring .spin{position:absolute;left:50.3%;top:45%;width:78%;aspect-ratio:1;margin:-39% 0 0 -39%}
+.proc-eye .ring .spin{position:absolute;left:48.6%;top:44.7%;width:78%;aspect-ratio:1;margin:-39% 0 0 -39%}
 .proc-eye .ring svg{display:block;width:100%;height:100%;overflow:visible}
 .proc-eye .ring text{font-family:var(--f-mono);font-size:7.2px;letter-spacing:.32em;fill:var(--bone);text-transform:uppercase}
 .steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
@@ -195,8 +198,8 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
 .quotes{padding-block:clamp(90px,12vw,170px);background:var(--ink)}
 .q-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,4fr);gap:clamp(24px,5vw,80px);align-items:center}
 .q-img{position:relative;aspect-ratio:3/2;overflow:hidden;border-radius:4px}
-.q-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:50.4% 42%;will-change:transform}
-.q-img::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50.4% 42%,transparent 30%,rgba(17,14,19,.55) 100%);opacity:var(--vig,0);pointer-events:none}
+.q-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:37.1% 42.1%;will-change:transform}
+.q-img::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 37.1% 42.1%,transparent 30%,rgba(17,14,19,.55) 100%);opacity:var(--vig,0);pointer-events:none}
 blockquote{margin:0}
 .q-big{font-family:var(--f-serif);font-size:clamp(34px,4.6vw,76px);line-height:1;letter-spacing:-.015em;margin:0 0 22px;text-wrap:balance}
 .q-big .hot{font-style:normal}
@@ -309,11 +312,11 @@ footer{background:var(--ink)}
 
 <div class="cursor" id="cursor"><span class="txt" id="cursorTxt">VIEW</span></div>
 <div class="hover-img" id="hoverImg" aria-hidden="true">
-  <img src="im/skull-900.webp" alt="" loading="lazy">
+  <img src="im/skulls2-900.webp" alt="" loading="lazy">
   <img src="im/statue-900.webp" alt="" loading="lazy">
-  <img src="im/chameleon-wide-900.webp" alt="" loading="lazy">
+  <img src="im/cham-bokeh-900.webp" alt="" loading="lazy">
   <img src="im/giraffes-900.webp" alt="" loading="lazy">
-  <img src="im/frog-900.webp" alt="" loading="lazy">
+  <img src="im/eye-gold-900.webp" alt="" loading="lazy">
 </div>
 
 <div class="menu" id="menu" aria-hidden="true">
@@ -366,7 +369,7 @@ footer{background:var(--ink)}
   </div>
 
   <section class="manifesto" id="studio">
-    <div class="bg" data-speed="0.2"><img src="im/fog-1800.webp" srcset="im/fog-900.webp 900w, im/fog-1800.webp 1800w" sizes="100vw" alt="" loading="lazy" decoding="async"></div>
+    <div class="bg" data-speed="0.2"><img src="im/ink-1800.webp" srcset="im/ink-900.webp 900w, im/ink-1800.webp 1800w" sizes="100vw" alt="" loading="lazy" decoding="async"></div>
     <div class="wrap">
       <div class="label-row mono"><span>Manifesto</span><span>The short version</span></div>
     </div>
@@ -385,11 +388,11 @@ footer{background:var(--ink)}
       <p>Five disciplines, one crew. Hover a line to see the energy we bring to it.</p>
     </div>
     <ul class="svc-list">
-      <li class="svc" data-img="0" tabindex="0"><span class="mono">Brand</span><h3>Brand Identity</h3><p>Names, logos, systems. Faces people recognize in the dark.</p><span class="arr">→</span><img class="thumb" src="im/skull-900.webp" alt="" loading="lazy" decoding="async"></li>
+      <li class="svc" data-img="0" tabindex="0"><span class="mono">Brand</span><h3>Brand Identity</h3><p>Names, logos, systems. Faces people recognize in the dark.</p><span class="arr">→</span><img class="thumb" src="im/skulls2-900.webp" alt="" loading="lazy" decoding="async"></li>
       <li class="svc" data-img="1" tabindex="0"><span class="mono">Direct</span><h3>Art Direction</h3><p>Photo, video and AI-crafted visuals with zero stock energy.</p><span class="arr">→</span><img class="thumb" src="im/statue-900.webp" alt="" loading="lazy" decoding="async"></li>
-      <li class="svc" data-img="2" tabindex="0"><span class="mono">Build</span><h3>Digital</h3><p>Websites that move. Literally. This one included.</p><span class="arr">→</span><img class="thumb" src="im/chameleon-wide-900.webp" alt="" loading="lazy" decoding="async"></li>
+      <li class="svc" data-img="2" tabindex="0"><span class="mono">Build</span><h3>Digital</h3><p>Websites that move. Literally. This one included.</p><span class="arr">→</span><img class="thumb" src="im/cham-bokeh-900.webp" alt="" loading="lazy" decoding="async"></li>
       <li class="svc" data-img="3" tabindex="0"><span class="mono">Launch</span><h3>Campaigns</h3><p>Ideas loud enough to cross borders.</p><span class="arr">→</span><img class="thumb" src="im/giraffes-900.webp" alt="" loading="lazy" decoding="async"></li>
-      <li class="svc" data-img="4" tabindex="0"><span class="mono">Post</span><h3>Social</h3><p>Content people stop for, save and steal.</p><span class="arr">→</span><img class="thumb" src="im/frog-900.webp" alt="" loading="lazy" decoding="async"></li>
+      <li class="svc" data-img="4" tabindex="0"><span class="mono">Post</span><h3>Social</h3><p>Content people stop for, save and steal.</p><span class="arr">→</span><img class="thumb" src="im/eye-gold-900.webp" alt="" loading="lazy" decoding="async"></li>
     </ul>
   </section>
 
@@ -426,7 +429,7 @@ footer{background:var(--ink)}
     <div class="label-row mono" style="margin-bottom:clamp(40px,6vw,90px)"><span>How we work</span><span>Four steps, no drama</span></div>
     <div class="proc-grid">
       <div class="proc-eye" id="eye">
-        <img src="im/iris-1800.webp" srcset="im/iris-900.webp 900w, im/iris-1800.webp 1800w" sizes="(min-width:901px) 45vw, 100vw" alt="Surreal eye wrapped in branches" loading="lazy" decoding="async">
+        <div class="eye-media" id="eyeMedia"><img id="eyeImg" src="im/eye-vines-1600.webp" srcset="im/eye-vines-900.webp 900w, im/eye-vines-1600.webp 1600w" sizes="(min-width:901px) 45vw, 100vw" alt="Blue eye caught in a web of living vines" loading="lazy" decoding="async"></div>
         <div class="ring"><div class="spin" id="ring"><svg viewBox="0 0 200 200" aria-hidden="true"><defs><path id="circ" d="M100,100 m-82,0 a82,82 0 1,1 164,0 a82,82 0 1,1 -164,0"/></defs><text><textPath href="#circ">look closer · look closer · look closer · look closer · look closer ·</textPath></text></svg></div></div>
       </div>
       <ol class="steps">
@@ -439,7 +442,7 @@ footer{background:var(--ink)}
   </section>
 
   <section class="numbers">
-    <div class="bg" data-speed="0.25"><img src="im/waves-1800.webp" srcset="im/waves-900.webp 900w, im/waves-1800.webp 1800w" sizes="100vw" alt="" loading="lazy" decoding="async"></div>
+    <div class="bg" data-speed="0.25"><img src="im/pencils-1480.webp" srcset="im/pencils-900.webp 900w, im/pencils-1480.webp 1480w" sizes="100vw" alt="" loading="lazy" decoding="async"></div>
     <div class="wrap" style="position:relative;z-index:1">
       <div class="label-row mono" style="margin-bottom:28px;color:var(--bone)"><span>In numbers</span><span>Since day one</span></div>
       <div class="num-grid">
@@ -453,7 +456,7 @@ footer{background:var(--ink)}
 
   <section class="quotes wrap">
     <div class="q-grid">
-      <div class="q-img"><img class="par-v" src="im/eye-forest-1800.webp" srcset="im/eye-forest-900.webp 900w, im/eye-forest-1800.webp 1800w" sizes="(min-width:901px) 55vw, 100vw" alt="Glowing amber eye opening inside a dark forest" loading="lazy" decoding="async"></div>
+      <div class="q-img"><img class="par-v" src="im/eye-wires-1800.webp" srcset="im/eye-wires-900.webp 900w, im/eye-wires-1800.webp 1800w" sizes="(min-width:901px) 55vw, 100vw" alt="Teal eye wired into a nest of coral and green cables" loading="lazy" decoding="async"></div>
       <blockquote>
         <p class="q-big reveal"><span class="hot">“</span>They didn't redesign our brand. They gave it a heartbeat.<span class="hot">”</span></p>
         <footer class="q-who mono">Founder — SOLOD</footer>
@@ -471,7 +474,7 @@ footer{background:var(--ink)}
     <div class="crew-grid">
       <article class="member" tabindex="0"><div class="ph"><img src="im/chameleon-900.webp" alt="Chameleon portrait" loading="lazy" decoding="async"></div><div class="who"><h3>Oksana Kravets</h3><span class="mono role">Founder, CD</span></div><p class="fact">Changes direction mid-meeting. Usually right.</p></article>
       <article class="member" tabindex="0"><div class="ph"><img src="im/statue-900.webp" alt="Classical bust with headphones" loading="lazy" decoding="async"></div><div class="who"><h3>Taras Melnyk</h3><span class="mono role">Art Director</span></div><p class="fact">Classical training, terrible playlists.</p></article>
-      <article class="member" tabindex="0"><div class="ph"><img src="im/frog-900.webp" alt="Red-eyed tree frog" loading="lazy" decoding="async"></div><div class="who"><h3>Dana Hrytsenko</h3><span class="mono role">Copy Lead</span></div><p class="fact">Sits quietly. Then drops the headline.</p></article>
+      <article class="member" tabindex="0"><div class="ph"><img src="im/cham-bokeh-900.webp" alt="Chameleon glowing in neon bokeh" loading="lazy" decoding="async"></div><div class="who"><h3>Dana Hrytsenko</h3><span class="mono role">Copy Lead</span></div><p class="fact">Sits quietly. Then drops the headline.</p></article>
       <article class="member" tabindex="0"><div class="ph"><img src="im/giraffes-900.webp" alt="Neon giraffes" loading="lazy" decoding="async" style="object-position:50% 25%"></div><div class="who"><h3>Yurii Bondar</h3><span class="mono role">Strategy</span></div><p class="fact">Sees the market from a little higher up.</p></article>
       <article class="member" tabindex="0"><div class="ph"><img src="im/skull-900.webp" alt="Skull in a party hat" loading="lazy" decoding="async" style="object-position:72% 50%"></div><div class="who"><h3>Ira Shevchuk</h3><span class="mono role">Motion</span></div><p class="fact">Makes deadlines feel like a party.</p></article>
       <article class="member" tabindex="0"><div class="ph"><img src="im/eye-forest-900.webp" alt="Glowing eye in a dark forest" loading="lazy" decoding="async"></div><div class="who"><h3>Max Lysenko</h3><span class="mono role">Creative Dev</span></div><p class="fact">Notices the one pixel you missed.</p></article>
@@ -491,7 +494,7 @@ footer{background:var(--ink)}
   </section>
 
   <section class="cta" id="contact">
-    <div class="bg" data-speed="0.15"><img src="im/haze-1800.webp" srcset="im/haze-900.webp 900w, im/haze-1800.webp 1800w" sizes="100vw" alt="" loading="lazy" decoding="async"></div>
+    <div class="bg" data-speed="0.15"><img src="im/smoke-1800.webp" srcset="im/smoke-900.webp 900w, im/smoke-1800.webp 1800w" sizes="100vw" alt="" loading="lazy" decoding="async"></div>
     <img class="skulls" id="skulls" src="im/skulls-900.webp" alt="" loading="lazy" decoding="async">
     <div class="inner wrap">
       <p class="ask">Got a brand that deserves to be felt?</p>
@@ -764,10 +767,82 @@ footer{background:var(--ink)}
 
   // ---------- PROCESS ----------
   gsap.to('#ring',{rotation:360,ease:'none',scrollTrigger:{trigger:'.process',start:'top bottom',end:'bottom top',scrub:true}});
-  gsap.fromTo('#eye img',{scale:1.35},{scale:1,ease:'none',scrollTrigger:{trigger:'.process',start:'top bottom',end:'bottom top',scrub:true}});
+  gsap.fromTo('#eyeMedia',{scale:1.35},{scale:1,ease:'none',scrollTrigger:{trigger:'.process',start:'top bottom',end:'bottom top',scrub:true}});
   $$('.step h3').forEach(h=>{
     gsap.fromTo(h,{color:'#3a3340'},{color:'#F2ECEF',ease:'none',scrollTrigger:{trigger:h,start:'top 85%',end:'top 50%',scrub:true}});
   });
+
+
+  // ---------- LIVING VINES (WebGL) ----------
+  (function vines(){
+    const box=$('#eye'),media=$('#eyeMedia'),img=$('#eyeImg');if(!box||!img)return;
+    const cv=document.createElement('canvas');
+    const gl=cv.getContext('webgl',{premultipliedAlpha:false,antialias:false});if(!gl)return;
+    const VSv='attribute vec2 p;varying vec2 v;void main(){v=p*.5+.5;gl_Position=vec4(p,0.,1.);}';
+    const FSv=`precision highp float;varying vec2 v;uniform sampler2D t;uniform vec2 res,isz,mouse;uniform float time,scroll,hov;
+    float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+    float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
+    float fbm(vec2 p){float s=0.,a=.5;for(int i=0;i<4;i++){s+=a*n(p);p=p*2.03+17.;a*=.5;}return s;}
+    vec3 tx(vec2 u){u=clamp(u,.001,.999);return texture2D(t,vec2(u.x,1.-u.y)).rgb;}
+    void main(){
+      vec2 q=vec2(v.x,1.-v.y);
+      float rs=res.x/res.y,ri=isz.x/isz.y;
+      vec2 sc=rs<ri?vec2(rs/ri,1.):vec2(1.,ri/rs);
+      vec2 u=(q-.5)*sc+.5;
+      vec2 asp=vec2(1.,isz.y/isz.x);
+      vec2 C=vec2(.52,.462),P=vec2(.486,.456);
+      vec2 dv=(u-C)*asp;float d=length(dv);
+      float outer=smoothstep(.3,.48,d);
+      float dp=length((u-P)*asp);
+      float irisM=smoothstep(.12,.2,dp);
+      float m=irisM*mix(.25,1.,outer);
+      float T=time;
+      vec2 pp=u*asp*2.6;
+      vec2 flow=vec2(fbm(pp+vec2(T*.22,-T*.13)),fbm(pp+vec2(5.2,1.3)+vec2(-T*.17,T*.2)))-.5;
+      float ang=(sin(T*.55+d*8.)*.06+scroll*.32*outer)*m;
+      float cs=cos(ang),sn=sin(ang);
+      vec2 nd=mat2(cs,-sn,sn,cs)*dv;
+      nd+=normalize(dv+1e-5)*sin(d*16.-T*2.2)*.007*m;
+      nd+=flow*.06*m;
+      vec2 mu=(mouse-.5)*sc+.5;vec2 mv=(u-mu)*asp;float md=length(mv);
+      nd+=normalize(mv+1e-5)*.06*hov*smoothstep(.3,0.,md)*m;
+      vec2 uu=C+nd/asp;
+      float beat=pow(.5+.5*sin(T*1.6),4.);
+      float k=1.-.09*beat*(1.-smoothstep(.0,.16,dp));
+      uu=P+(uu-P)*k;
+      vec2 off=flow*.012*m;
+      vec3 col=vec3(tx(uu+off).r,tx(uu).g,tx(uu-off).b);
+      col+=vec3(.05,.12,.25)*beat*(1.-smoothstep(.06,.16,dp))*irisM;
+      gl_FragColor=vec4(col,1.);
+    }`;
+    const sh=(ty,src)=>{const o=gl.createShader(ty);gl.shaderSource(o,src);gl.compileShader(o);return o};
+    const pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,VSv));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,FSv));gl.linkProgram(pr);
+    if(!gl.getProgramParameter(pr,gl.LINK_STATUS))return;
+    gl.useProgram(pr);
+    const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+    const loc=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+    const U=k=>gl.getUniformLocation(pr,k);const uRes=U('res'),uIsz=U('isz'),uM=U('mouse'),uT=U('time'),uS=U('scroll'),uH=U('hov');
+    const st={mx:.5,my:.5,hov:0,scroll:0,vis:false,ready:false};
+    const tex=gl.createTexture();const src=new Image();src.decoding='async';
+    function resize(){const r=box.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,1.75);cv.width=Math.max(1,r.width*dpr);cv.height=Math.max(1,r.height*dpr);gl.viewport(0,0,cv.width,cv.height);gl.uniform2f(uRes,cv.width,cv.height)}
+    src.onload=()=>{
+      gl.bindTexture(gl.TEXTURE_2D,tex);gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true);
+      gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,gl.RGB,gl.UNSIGNED_BYTE,src);
+      ['TEXTURE_WRAP_S','TEXTURE_WRAP_T'].forEach(k=>gl.texParameteri(gl.TEXTURE_2D,gl[k],gl.CLAMP_TO_EDGE));
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+      gl.uniform2f(uIsz,src.naturalWidth,src.naturalHeight);
+      media.appendChild(cv);box.classList.add('gl');st.ready=true;resize();
+    };
+    src.src=(window.innerWidth>900||devicePixelRatio>1.5)?'im/eye-vines-1600.webp':'im/eye-vines-900.webp';
+    window.addEventListener('resize',()=>st.ready&&resize());
+    new IntersectionObserver(es=>es.forEach(en=>st.vis=en.isIntersecting),{rootMargin:'150px'}).observe(box);
+    const qx=gsap.quickTo(st,'mx',{duration:.8,ease:'power3'}),qy=gsap.quickTo(st,'my',{duration:.8,ease:'power3'});
+    box.addEventListener('pointerenter',()=>gsap.to(st,{hov:1,duration:1,ease:'power3.out'}));
+    box.addEventListener('pointerleave',()=>gsap.to(st,{hov:0,duration:1.4,ease:'power3.out'}));
+    box.addEventListener('pointermove',e=>{const r=box.getBoundingClientRect();qx((e.clientX-r.left)/r.width);qy((e.clientY-r.top)/r.height)});
+    ScrollTrigger.create({trigger:'.process',start:'top bottom',end:'bottom top',onUpdate:self=>gsap.to(st,{scroll:self.progress*2-1,duration:.8,overwrite:true})});
+    gsap.ticker.add(t=>{if(!st.ready||!st.vis)return;gl.uniform1f(uT,t);gl.uniform1f(uS,st.scroll);gl.uniform1f(uH,st.hov);gl.uniform2f(uM,st.mx,st.my);gl.drawArrays(gl.TRIANGLE_STRIP,0,4)});
+  })();
 
   // ---------- NUMBERS ----------
   $$('.num strong').forEach(el=>{
