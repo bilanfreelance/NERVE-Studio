@@ -432,6 +432,7 @@ footer{background:var(--ink)}
   .member .who{flex-direction:column;gap:4px}
   .member h3{font-size:19px}
   .member .fact{font-size:15px}
+  .big-foot{font-size:21vw;padding-inline:0}
   #clock{display:none}
 }
 @media (prefers-reduced-motion:reduce){
@@ -1044,7 +1045,7 @@ footer{background:var(--ink)}
 
   // fit giant words to the container on small screens
   (function fit(){
-    const run=()=>{$$('.weird-h .wl2,.weird-h .wl').forEach(el=>{el.style.fontSize='';const cw=el.parentElement.clientWidth;let w=el.children.length?[...el.children].reduce((m,c)=>Math.max(m,c.offsetLeft+c.offsetWidth),0)-el.offsetLeft:el.scrollWidth;if(w>cw){const fs=parseFloat(getComputedStyle(el).fontSize);el.style.fontSize=(fs*cw/w*.98)+'px'}})};
+    const run=()=>{$$('.weird-h .wl2,.weird-h .wl,.big-foot').forEach(el=>{el.style.fontSize='';const cw=el.parentElement.clientWidth;let w=el.children.length?[...el.children].reduce((m,c)=>Math.max(m,c.offsetLeft+c.offsetWidth),0)-el.offsetLeft:el.scrollWidth;if(w>cw){const fs=parseFloat(getComputedStyle(el).fontSize);el.style.fontSize=(fs*cw/w*.98)+'px'}})};
     (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(run);window.addEventListener('resize',run);
   })();
   // ---------- MANIFESTO cut-outs ----------
