@@ -181,6 +181,7 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
 .ps-eye{left:16%;top:8%;width:62%;z-index:3}
 .ps-eye .qp{perspective:700px}
 .ps-gir{left:66%;top:44%;width:28%;z-index:4}
+.ps-bust{left:-6%;top:50%;width:34%;z-index:4;filter:drop-shadow(0 24px 40px rgba(0,0,0,.5))}
 .proc-stage .ring{position:absolute;inset:0;pointer-events:none;z-index:5}
 .proc-stage .ring .spin{position:absolute;left:48%;top:42.5%;width:66%;aspect-ratio:1;margin:-33% 0 0 -33%}
 .proc-stage .ring svg{display:block;width:100%;height:100%;overflow:visible}
@@ -344,7 +345,8 @@ blockquote{margin:0}
 .email strong{font-size:clamp(24px,3vw,46px);font-weight:700;font-variation-settings:"wdth" 110;letter-spacing:-.02em;user-select:all}
 .copy{background:none;border:1px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer;align-self:flex-start}
 .copy:hover{border-color:var(--hot);color:var(--hot)}
-.cta .skulls{position:absolute;right:-6vw;top:8%;width:min(46vw,640px);z-index:0;opacity:0}
+.cta h2 .ch,.cta h2 .wv{display:inline-block;transform-origin:50% 100%;will-change:transform}
+.cta .bg{will-change:clip-path}
 
 .btn{display:inline-flex;align-items:center;gap:12px;padding:16px 24px;border-radius:999px;font-weight:700;font-variation-settings:"wdth" 110;font-size:16px;transition:background .3s,color .3s}
 
@@ -500,7 +502,7 @@ footer{background:var(--ink)}
   </section>
 
   <section class="work" id="work">
-    <div class="work-head wrap"><img class="dc wk-bust" src="im/bust-l.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <div class="work-head wrap">
       <h2 class="h-sec reveal">Selected <span class="serif">work</span></h2>
       <p class="mono" style="color:var(--mute);margin:0">Proof, not promises · 2025—2026</p>
     </div>
@@ -536,6 +538,7 @@ footer{background:var(--ink)}
         <div class="qs ps-orbit" data-d=".3"><div class="qp"><svg viewBox="0 0 600 160"><ellipse cx="300" cy="80" rx="292" ry="62" fill="none" stroke="#7C8CFF" stroke-width="1.2" stroke-dasharray="3 9" opacity=".8"/><ellipse cx="300" cy="80" rx="240" ry="44" fill="none" stroke="#F2ECEF" stroke-width=".8" opacity=".25"/><circle r="5" fill="#7C8CFF"><animateMotion dur="6s" repeatCount="indefinite" path="M8,80 a292,62 0 1,0 584,0 a292,62 0 1,0 -584,0"/></circle><circle r="3" fill="#FF2E63"><animateMotion dur="4s" repeatCount="indefinite" path="M592,80 a240,44 0 1,1 -480,0 a240,44 0 1,1 480,0"/></circle></svg></div></div>
         <div class="qs ps-eye qs-eye" data-d=".6"><div class="qp"><img src="im/eye-gold-cut.webp" alt="" loading="lazy" decoding="async"></div></div>
         <div class="ring"><div class="spin" id="ring"><svg viewBox="0 0 200 200" aria-hidden="true"><defs><path id="circ" d="M100,100 m-82,0 a82,82 0 1,1 164,0 a82,82 0 1,1 -164,0"/></defs><text><textPath href="#circ">look closer · look closer · look closer · look closer · look closer ·</textPath></text></svg></div></div>
+        <div class="qs ps-bust" data-d=".9"><div class="qp"><img src="im/bust-l.webp" alt="" loading="lazy" decoding="async"></div></div>
         <div class="qs ps-gir" data-d="1.1"><div class="qp"><img src="im/giraffe-cut.webp" alt="" loading="lazy" decoding="async"></div></div>
         <div class="qs qs-shadow" data-d=".1" style="top:92%"></div>
         <span class="qs qs-spark" data-d="1.3" style="left:10%;top:20%"></span>
@@ -617,7 +620,6 @@ footer{background:var(--ink)}
       <div class="cl-row" data-dir="1"><span class="o">HROM</span><i>✳</i><span>LUNA FM</span><i>✳</i><span class="o">SMAK</span><em>&amp;</em><span>ZORYA</span><i>✳</i><span class="o">MAMAI</span><i>✳</i><span class="o">HROM</span><i>✳</i><span>LUNA FM</span><i>✳</i><span class="o">SMAK</span><em>&amp;</em><span>ZORYA</span><i>✳</i><span class="o">MAMAI</span><i>✳</i></div>
       <div class="cl-row" data-dir="-1"><span>TYSHA</span><i>✳</i><span class="o">KHVYLIA</span><i>✳</i><span>DIM</span><em>&amp;</em><span class="o">PYL</span><i>✳</i><span>BORSCH LAB</span><i>✳</i><span>TYSHA</span><i>✳</i><span class="o">KHVYLIA</span><i>✳</i><span>DIM</span><em>&amp;</em><span class="o">PYL</span><i>✳</i><span>BORSCH LAB</span><i>✳</i></div>
     </div>
-    <img class="dc cl-bust" src="im/bust-r.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
     <img class="cl-cham" id="clCham" src="im/cham-cut.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
   </section>
 
@@ -663,7 +665,6 @@ footer{background:var(--ink)}
 
   <section class="cta" id="contact">
     <div class="bg" data-speed="0.15"><img src="im/cham-neon-1480.webp" srcset="im/cham-neon-900.webp 900w, im/cham-neon-1480.webp 1480w" sizes="100vw" alt="" loading="lazy" decoding="async"></div>
-    <img class="skulls" id="skulls" src="im/skulls-900.webp" alt="" loading="lazy" decoding="async">
     <div class="inner wrap">
       <p class="ask">Got a brand that deserves to be felt?</p>
       <h2>Let's make<span class="l2">noise.</span></h2>
@@ -894,7 +895,7 @@ footer{background:var(--ink)}
     if(!hasSplit)return;
     $$('.reveal').forEach(el=>{
       SplitText.create(el,{type:'lines',mask:'lines',linesClass:'split-line',autoSplit:true,onSplit(self){
-        return gsap.from(self.lines,{yPercent:105,duration:1.1,stagger:.09,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none reverse'}});
+        return gsap.from(self.lines,{yPercent:105,duration:1.1,stagger:.09,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}});
       }});
     });
   }
@@ -1048,8 +1049,18 @@ footer{background:var(--ink)}
   gsap.to('#hSkull',{y:-14,duration:2.2,ease:'sine.inOut',yoyo:true,repeat:-1});
   gsap.fromTo('#hSkull',{xPercent:0,rotation:-14},{xPercent:-30,rotation:16,ease:'none',scrollTrigger:{trigger:'#humans',start:'top bottom',end:'bottom top',scrub:1}});
   // ---------- CTA ----------
-  gsap.fromTo('#skulls',{autoAlpha:0,y:120,rotation:-8},{autoAlpha:.9,y:-60,rotation:4,ease:'none',scrollTrigger:{trigger:'#contact',start:'top 90%',end:'bottom bottom',scrub:true}});
-  gsap.fromTo('.cta h2 .l2',{xPercent:-20},{xPercent:0,ease:'none',scrollTrigger:{trigger:'.cta h2',start:'top bottom',end:'top 30%',scrub:true}});
+  // CTA: iris-open background, rising letters, "noise." sound-wave
+  (function cta(){
+    const h=$('.cta h2'),l2=h.querySelector('.l2');
+    const wrap=(node)=>{const t=node.nodeValue,f=document.createDocumentFragment();[...t].forEach(ch=>{const sp=document.createElement('span');sp.className='ch';const w=document.createElement('span');w.className='wv';w.textContent=ch===' '?'\u00a0':ch;sp.appendChild(w);f.appendChild(sp)});node.replaceWith(f)};
+    [...h.childNodes].forEach(n=>{if(n.nodeType===3)wrap(n)});[...l2.childNodes].forEach(n=>{if(n.nodeType===3)wrap(n)});
+    gsap.fromTo('#contact .bg',{clipPath:'circle(12% at 50% 60%)'},{clipPath:'circle(85% at 50% 50%)',ease:'none',scrollTrigger:{trigger:'#contact',start:'top 95%',end:'top 15%',scrub:1.2}});
+    gsap.fromTo('#contact .bg img',{scale:1.35,rotation:-3},{scale:1,rotation:0,ease:'none',scrollTrigger:{trigger:'#contact',start:'top bottom',end:'bottom bottom',scrub:1.2}});
+    gsap.fromTo('.cta h2 > .ch',{yPercent:110,rotation:8,autoAlpha:0},{yPercent:0,rotation:0,autoAlpha:1,stagger:.04,ease:'power3.out',scrollTrigger:{trigger:h,start:'top 90%',end:'top 45%',scrub:1}});
+    gsap.fromTo('.cta .l2 .ch',{yPercent:120,scaleY:1.6,autoAlpha:0},{yPercent:0,scaleY:1,autoAlpha:1,stagger:.05,ease:'power3.out',scrollTrigger:{trigger:h,start:'top 75%',end:'top 30%',scrub:1}});
+    gsap.to('.cta .l2 .wv',{scaleY:1.1,yPercent:-4,duration:1.4,ease:'sine.inOut',yoyo:true,repeat:-1,stagger:{each:.16,repeat:-1,yoyo:true},delay:1});
+    gsap.from('.cta .ask,.cta-row',{y:40,autoAlpha:0,duration:1.4,stagger:.15,ease:'expo.out',scrollTrigger:{trigger:'.cta-row',start:'top 92%',toggleActions:'play none none reverse'}});
+  })();
   gsap.fromTo('.big-foot span',{yPercent:105,rotation:i=>[-10,8,-6,9,-8,20][i]},{yPercent:0,rotation:0,duration:1.4,stagger:.08,ease:'expo.out',scrollTrigger:{trigger:'.big-foot',start:'top 92%',toggleActions:'play none none reverse'}});
 
   // ---------- POINTER ----------
