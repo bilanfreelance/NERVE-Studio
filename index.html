@@ -352,7 +352,7 @@ blockquote{margin:0}
 .h-skull{position:absolute;right:calc(var(--gut) + 2vw);top:clamp(96px,11vw,170px);width:clamp(90px,10vw,170px);z-index:2;pointer-events:none;filter:drop-shadow(0 24px 40px rgba(255,46,99,.25));will-change:transform}
 @media (max-width:900px){.h-skull{top:64px;width:64px;right:var(--gut)}.humans .inner{padding-top:110px}}
 @media (max-width:600px){.manifesto p.big{line-height:1.18}.mi-skull .mb{width:1.25em;margin:-.5em 0 0 -.62em}.mi-astro .mb{width:.75em;margin:-.6em 0 0 -.37em}.mi-heart .mb{width:.85em;margin:-.6em 0 0 -.42em}.mi-cham .mb{width:1.25em;margin:-.58em 0 0 -.62em}
-  .rule{min-height:58vh;padding:22px;border-radius:18px}.rule h3{font-size:44px}.cl-rows{font-size:15vw}.weird-h .wl2{font-size:24vw}.badge{width:110px}
+  .rule{min-height:58vh;padding:22px;border-radius:18px}.rule h3{font-size:44px}.cl-rows{font-size:15vw}.weird-h .wl2{font-size:28vw;letter-spacing:-.05em;font-variation-settings:"wdth" 82;justify-content:flex-start}.weird-h .wl{font-size:13vw}.weird{overflow:hidden}.badge{width:110px}
   .q-stage{max-width:100%}.proc-stage{max-width:100%}.crew-david{display:none}.nrow .big{font-size:40vw}.lbl{font-size:22px}}
 .humans .label-row{border-color:var(--line);color:var(--bone)}
 
@@ -372,6 +372,7 @@ blockquote{margin:0}
 .email strong{font-size:clamp(24px,3vw,46px);font-weight:700;font-variation-settings:"wdth" 110;letter-spacing:-.02em;user-select:all}
 .copy{background:none;border:1px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer;align-self:flex-start}
 .copy:hover{border-color:var(--hot);color:var(--hot)}
+.cta h2 .wd{display:inline-block;white-space:nowrap}
 .cta h2 .ch,.cta h2 .wv{display:inline-block;transform-origin:50% 100%;will-change:transform}
 .cta .bg{will-change:clip-path}
 
@@ -1041,6 +1042,11 @@ footer{background:var(--ink)}
   });
 
 
+  // fit giant words to the container on small screens
+  (function fit(){
+    const run=()=>{$$('.weird-h .wl2,.weird-h .wl').forEach(el=>{el.style.fontSize='';const cw=el.parentElement.clientWidth;let w=el.children.length?[...el.children].reduce((m,c)=>Math.max(m,c.offsetLeft+c.offsetWidth),0)-el.offsetLeft:el.scrollWidth;if(w>cw){const fs=parseFloat(getComputedStyle(el).fontSize);el.style.fontSize=(fs*cw/w*.98)+'px'}})};
+    (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(run);window.addEventListener('resize',run);
+  })();
   // ---------- MANIFESTO cut-outs ----------
   $$('.mi').forEach((el,k)=>{
     const img=el.querySelector('img'),mb=el.querySelector('.mb');
@@ -1110,11 +1116,11 @@ footer{background:var(--ink)}
   // CTA: iris-open background, rising letters, "noise." sound-wave
   (function cta(){
     const h=$('.cta h2'),l2=h.querySelector('.l2');
-    const wrap=(node)=>{const t=node.nodeValue,f=document.createDocumentFragment();[...t].forEach(ch=>{const sp=document.createElement('span');sp.className='ch';const w=document.createElement('span');w.className='wv';w.textContent=ch===' '?'\u00a0':ch;sp.appendChild(w);f.appendChild(sp)});node.replaceWith(f)};
+    const wrap=(node)=>{const f=document.createDocumentFragment();node.nodeValue.split(/(\s+)/).forEach(word=>{if(!word)return;if(/^\s+$/.test(word)){f.appendChild(document.createTextNode(' '));return}const wd=document.createElement('span');wd.className='wd';[...word].forEach(ch=>{const sp=document.createElement('span');sp.className='ch';const w=document.createElement('span');w.className='wv';w.textContent=ch;sp.appendChild(w);wd.appendChild(sp)});f.appendChild(wd)});node.replaceWith(f)};
     [...h.childNodes].forEach(n=>{if(n.nodeType===3)wrap(n)});[...l2.childNodes].forEach(n=>{if(n.nodeType===3)wrap(n)});
     gsap.fromTo('#contact .bg',{clipPath:'circle(12% at 50% 60%)'},{clipPath:'circle(85% at 50% 50%)',ease:'none',scrollTrigger:{trigger:'#contact',start:'top 95%',end:'top 15%',scrub:1.2}});
     gsap.fromTo('#contact .bg img',{scale:1.35,rotation:-3},{scale:1,rotation:0,ease:'none',scrollTrigger:{trigger:'#contact',start:'top bottom',end:'bottom bottom',scrub:1.2}});
-    gsap.fromTo('.cta h2 > .ch',{yPercent:110,rotation:8,autoAlpha:0},{yPercent:0,rotation:0,autoAlpha:1,stagger:.04,ease:'power3.out',scrollTrigger:{trigger:h,start:'top 90%',end:'top 45%',scrub:1}});
+    gsap.fromTo('.cta h2 > .wd > .ch',{yPercent:110,rotation:8,autoAlpha:0},{yPercent:0,rotation:0,autoAlpha:1,stagger:.04,ease:'power3.out',scrollTrigger:{trigger:h,start:'top 90%',end:'top 45%',scrub:1}});
     gsap.fromTo('.cta .l2 .ch',{yPercent:120,scaleY:1.6,autoAlpha:0},{yPercent:0,scaleY:1,autoAlpha:1,stagger:.05,ease:'power3.out',scrollTrigger:{trigger:h,start:'top 75%',end:'top 30%',scrub:1}});
     gsap.to('.cta .l2 .wv',{scaleY:1.1,yPercent:-4,duration:1.4,ease:'sine.inOut',yoyo:true,repeat:-1,stagger:{each:.16,repeat:-1,yoyo:true},delay:1});
     gsap.from('.cta .ask,.cta-row',{y:40,autoAlpha:0,duration:1.4,stagger:.15,ease:'expo.out',scrollTrigger:{trigger:'.cta-row',start:'top 92%',toggleActions:'play none none reverse'}});
